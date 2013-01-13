@@ -6,13 +6,6 @@
 
 module Partner.Blocks.Feed {
  
-    function __extends(block, superBlock) {
-        var blockInstance = new block(),
-            descr = blockInstance.description();
-        block.prototype.onSetMod = descr.onSetMod;
-        BEM.DOM.decl(descr.name, block.prototype);
-    }
-
     interface FeedParams {
 	    url: string;
 	    field: string;
