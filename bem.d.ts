@@ -63,9 +63,41 @@ interface BemStatic {
     channel(id?: string, drop?: bool): CommunicationChannel;
 
     DOM: BemDomStatic;
+    I18N(block: string, message: string): string;
 }
 
 interface BemDomStatic {
+
+    doc: JQuery;
+    win: JQuery;
+
+    init(callback?: (e) => void , fnCtx?: any): JQuery;
+    init(ctx: JQuery, callback?: (e) => void , fnCtx?: any): JQuery;
+
+    desctruct(ctx: JQuery, excludeSelf?: bool): void;
+    desctruct(keepDom: bool, ctx: JQuery, excludeSelf?: bool): void;
+
+    update(ctx: JQuery, content: string, callback?: (e) => void , callbackCtx?: any): void;
+    update(ctx: JQuery, content: JQuery, callback?: (e) => void , callbackCtx?: any): void;
+
+    replace(ctx: JQuery, content: string): void;
+    replace(ctx: JQuery, content: JQuery): void;
+
+    append(ctx: JQuery, content: string): void;
+    append(ctx: JQuery, content: JQuery): void;
+
+    prepend(ctx: JQuery, content: string): void;
+    prepend(ctx: JQuery, content: JQuery): void;
+
+    before(ctx: JQuery, content: string): void;
+    before(ctx: JQuery, content: JQuery): void;
+
+    after(ctx: JQuery, content: string): void;
+    after(ctx: JQuery, content: JQuery): void;
+
+    liveInitOnEvent(event: string, callback?: (e) => void ): BemDomStatic;
+    liveInitOnEvent(elem: string, event: string, callback?: (e) => void ): BemDomStatic;
+
     decl(blockName: string, props?: BlockDescription, staticProps?: StaticBlockDescription): DomBlock;
 };
 
@@ -170,6 +202,7 @@ declare class DomBlock extends BemBlock {
     findBlocksOn(block: FindBlockDescription): DomBlock[];
     findBlocksOn(elem: string, block: string): DomBlock[];
     findBlocksOn(elem: JQuery, block: FindBlockDescription): DomBlock[];
+    findBlocksOn(elem: JQuery, block: string): DomBlock[];
 
     findBlockOn(block: string): DomBlock;
     findBlockOn(block: FindBlockDescription): DomBlock;
@@ -208,3 +241,7 @@ declare class DomBlock extends BemBlock {
 
     destruct(keepDom?: bool): void;
 }
+
+declare var BEMHTML: {
+    apply(bemJson: any): string;
+};
