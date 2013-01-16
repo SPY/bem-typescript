@@ -181,21 +181,25 @@ declare class DomBlock extends BemBlock {
     findBlocksInside(block: string): DomBlock[];
     findBlocksInside(block: FindBlockDescription): DomBlock[];
     findBlocksInside(elem: string, block: string): DomBlock[];
+    findBlocksInside(elem: JQuery, block: string): DomBlock[];
     findBlocksInside(elem: JQuery, block: FindBlockDescription): DomBlock[];
 
     findBlockInside(block: string): DomBlock;
     findBlockInside(block: FindBlockDescription): DomBlock;
     findBlockInside(elem: string, block: string): DomBlock;
+    findBlockInside(elem: JQuery, block: string): DomBlock;
     findBlockInside(elem: JQuery, block: FindBlockDescription): DomBlock;
 
     findBlocksOutside(block: string): DomBlock[];
     findBlocksOutside(block: FindBlockDescription): DomBlock[];
     findBlocksOutside(elem: string, block: string): DomBlock[];
+    findBlocksOutside(elem: JQuery, block: string): DomBlock[];
     findBlocksOutside(elem: JQuery, block: FindBlockDescription): DomBlock[];
 
     findBlockOutside(block: string): DomBlock;
     findBlockOutside(block: FindBlockDescription): DomBlock;
     findBlockOutside(elem: string, block: string): DomBlock;
+    findBlockOutside(elem: JQuery, block: string): DomBlock;
     findBlockOutside(elem: JQuery, block: FindBlockDescription): DomBlock;
 
     findBlocksOn(block: string): DomBlock[];
@@ -207,6 +211,7 @@ declare class DomBlock extends BemBlock {
     findBlockOn(block: string): DomBlock;
     findBlockOn(block: FindBlockDescription): DomBlock;
     findBlockOn(elem: string, block: string): DomBlock;
+    findBlockOn(elem: JQuery, block: string): DomBlock;
     findBlockOn(elem: JQuery, block: FindBlockDescription): DomBlock;
 
     bindToDomElem(domElem: JQuery, event: string, fn: (e: BemEvent) => any): DomBlock;
